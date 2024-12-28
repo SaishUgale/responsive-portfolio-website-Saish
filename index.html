@@ -446,7 +446,7 @@
               <!--====== Qualification 3 ======-->
               <div class="qualification__data">
                 <div>
-                  <h3 class="qualification__title">College</h3>
+                  <h3 class="qualification__title">B.Tech</h3>
                   <span class="qualification__subtitle"
                     >Nutan College Of Engineering & Research</span
                   >
@@ -486,7 +486,7 @@
                             class="uil uil-check-circle services__modal-icon"
                           ></i>
                           <p>
-                            Winners In Internal Smart India Hackathon
+                            Stood First In Internal Smart India Hackathon
                           </p>
                         </li>
                         <li class="services__modal-service">
@@ -706,10 +706,11 @@
 
               <div>
                 <h3 class="contact__title">Contact Me</h3>
-                <span class="contact__subtitle"
-                  ><a href="tel:+91 9172948720"></a>9172948720</span
-                >
+                <span class="contact__subtitle">
+                  <a href="tel:9172948270">9172948270</a>
+                </span>
               </div>
+              
             </div>
 
             <div class="contact__information">
@@ -718,7 +719,8 @@
               <div>
                 <h3 class="contact__title">Email</h3>
                 <span class="contact__subtitle"
-                  ><a href="mailto:saishugale2005@gmail.com"></span
+                  ><a href="mailto: saishugale2005@gmail.com?subject=Testing out mailto! &body=This is only a test!"
+                  >saishugale2005@gmail.com</a></span
                 >
               </div>
             </div>
@@ -735,44 +737,63 @@
             </div>
           </div>
 
-          <form action="" class="contact__form grid">
+          <form id="contactForm" class="contact__form grid">
             <div class="contact__inputs grid">
               <div class="contact__content">
-                <label for="" class="content__label">Name</label>
-                <input type="text" class="contact__input" />
+                <label for="name" class="content__label">Name</label>
+                <input type="text" id="name" name="name" class="contact__input" required />
               </div>
-
+          
               <div class="contact__content">
-                <label for="" class="content__label">Email</label>
-                <input type="Email" class="contact__input" />
+                <label for="email" class="content__label">Email</label>
+                <input type="email" id="email" name="email" class="contact__input" required />
               </div>
             </div>
-
+          
             <div class="contact__content">
-              <label for="" class="content__label">Message</label>
+              <label for="message" class="content__label">Message</label>
               <textarea
-                name=""
-                id=""
+                id="message"
+                name="message"
                 cols="0"
                 rows="7"
                 class="contact__input"
+                required
               ></textarea>
             </div>
-
+          
             <div>
-              <a
-                href=" mailto: saishugale2005@gmail.com?subject=Testing out mailto! &body=This is only a test!"
-                class="button button--flex"
-              >
+              <button type="submit" class="button button--flex">
                 Send Message
                 <i class="uil uil-message button__icon"></i>
-              </a>
+              </button>
             </div>
           </form>
+          
+          <script>
+            document.getElementById('contactForm').addEventListener('submit', async function (e) {
+              e.preventDefault();
+              const name = document.getElementById('name').value;
+              const email = document.getElementById('email').value;
+              const message = document.getElementById('message').value;
+          
+              const response = await fetch('https://your-backend-url/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message }),
+              });
+          
+              if (response.ok) {
+                alert('Message sent successfully!');
+              } else {
+                alert('Failed to send message.');
+              }
+            });
+          </script>
+          
         </div>
       </section>
     </main>
-
     <!--================== Footer ===============-->
     <footer class="footer">
       <div class="footer__bg">
@@ -786,6 +807,12 @@
 
           <ul class="footer__links">
             <li>
+              <a href="#home" class="footer__link">home</a>
+            </li>
+            <li>
+              <a href="#about" class="footer__link">About</a>
+            </li>
+            <li>
               <a href="#qualification" class="footer__link">Qualification</a>
             </li>
             <li>
@@ -797,13 +824,10 @@
           </ul>
 
           <div class="footer__socials">
-            <a
-              href="https://www.instagram.com/being_saishh.0107/"
-              class="footer__social"
-              target="__blank"
-            >
-              <i class="fa-brands fa-instagram"></i>
+            <a href="https://www.instagram.com/being_saishh.0107/" target="_blank" class="footer__social">
+              <i class="uil uil-instagram-alt home__icon"></i>
             </a>
+            
           </div>
         </div>
 
