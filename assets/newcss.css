@@ -390,7 +390,6 @@ img {
 
 /*===================== About ==================*/
 .about__img {
-  height: 410px;
   width: 170px;
   border-radius: 480%;
   justify-self: center;
