@@ -178,3 +178,43 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
 
+/*=============== EMAIL JS ===============*/
+
+// Initialize EmailJS with your actual public key
+emailjs.init("PrOUZQgv_2RdaE_AG"); // This is your public key
+
+// Select the form and message container
+const contactForm = document.getElementById("contactForm");
+const contactMessage = document.getElementById("contactMessage");
+
+// Function to send the email
+const sendEmail = (e) => {
+  e.preventDefault(); // Prevent form from reloading the page
+
+  // Use your correct Service ID, Template ID, and Form data
+  emailjs
+    .sendForm("service_i4mrkkb", "template_uh6czsp", contactForm) // Using your provided Service and Template IDs
+    .then(() => {
+      // Success message
+      contactMessage.textContent = "Message sent successfully ✅";
+      contactMessage.style.color = "green";
+
+      // Clear message after 5 seconds
+      setTimeout(() => {
+        contactMessage.textContent = "";
+      }, 5000);
+
+      // Reset the form
+      contactForm.reset();
+    })
+    .catch((error) => {
+      // Error message
+      console.error("EmailJS Error:", error);
+      contactMessage.textContent = "Message not sent ❌. Please try again.";
+      contactMessage.style.color = "red";
+    });
+};
+
+// Attach the event listener to the form
+contactForm.addEventListener("submit", sendEmail);
+
