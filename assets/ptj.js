@@ -43,7 +43,7 @@ skillsHeader.forEach((el) => {
   el.addEventListener("click", toggleSkills);
 });
 
-/*============== Qualification Skills ===============*/
+/*============== Qualification Skills ===============
 
 const tabs = document.querySelectorAll('[data-target]'),
       tabContents = document.querySelectorAll('[data-content]')
@@ -60,7 +60,7 @@ tabs.forEach(tab =>{
         tab.classList.add('qualification__active')
     })
 })      
-
+*/
 
 /*======================= Services Modal ===================*/
 const modalViews = document.querySelectorAll(".services__modal"),
@@ -99,6 +99,7 @@ var swiper = new Swiper(".portfolio__container", {
     clickable: true,
   },
 });
+
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll("section[id]");
